@@ -1,124 +1,107 @@
 #include <math.h>
+#include <immintrin.h>
 
 // Wrap C++ math lib
 
-static const float R_PI = 3.14159265359;
-static const float R_E = 2.718281828459;
+// Should I align every value to 32-bits?
 
-#pragma region Square Root
-
-static float rSqrt(int num)
+namespace rMath::Common
 {
-	return sqrt((float)num);
-}
+    static const double R_PI = 3.14159265359;
+    static const double R_E = 2.718281828459;
 
-static float rSqrt(float num)
-{
-	return sqrt(num);
-}
+#pragma region Roots
 
+    // Square root
+    static double Sqrt(double num)
+    {
+        return sqrt(num);
+    }
+
+    // Cube Root
+    static double Cbrt(double num)
+    {
+        return cbrt(num);
+    }
 #pragma endregion
 
-#pragma region Power
-static float rPow(int num, int exp)
-{
-	return pow((float)num, exp);
-}
+    // Power
+    static double Pow(double num, double exp)
+    {
+        return pow(num, exp);
+    }
 
-static float rPow(float num, int exp)
-{
-	return pow(num, exp);
-}
-#pragma endregion
-
-#pragma region Cube Root
-static float rCbrt(int num)
-{
-	return cbrt((float)num);
-}
-
-static float rCbrt(float num)
-{
-	return cbrt(num);
-}
-#pragma endregion
-
-#pragma region Hypotenuse
-static float rHypt(int a, int b)
-{
-	return hypot((float)a, (float)b);
-}
-
-static float rHypt(float a, float b)
-{
-	return hypot(a, b);
-}
-#pragma endregion
+    // Hypotenuse
+    static double Hypt(double a, double b)
+    {
+        return hypot(a, b);
+    }
 
 #pragma region Trig Shit
-// ALL IN RADIANS
+    // ALL IN RADIANS
 
-static float rSin(float rad)
-{
-	return sin(rad);
-}
+    static double Sin(double rad)
+    {
+        return sin(rad);
+    }
 
-static float rCos(float rad)
-{
-	return cos(rad);
-}
+    static double Cos(double rad)
+    {
+        return cos(rad);
+    }
 
-static float rTan(float rad)
-{
-	return tan(rad);
-}
+    static double Tan(double rad)
+    {
+        return tan(rad);
+    }
 
-static float rArcSin(float rad)
-{
-	return asin(rad);
-}
+    static double ArcSin(double rad)
+    {
+        return asin(rad);
+    }
 
-static float rArcCos(float rad)
-{
-	return acos(rad);
-}
+    static double ArcCos(double rad)
+    {
+        return acos(rad);
+    }
 
-static float rArcTan(float rad)
-{
-	return atan(rad);
-}
+    static double ArcTan(double rad)
+    {
+        return atan(rad);
+    }
 #pragma endregion
 
 #pragma region Hyperbolic Trig
-// All in Radians
+    // All in Radians
 
-static float rSinH(float rad)
-{
-	return sinh(rad);
-}
+    static double SinH(double rad)
+    {
+        return sinh(rad);
+    }
 
-static float rCosH(float rad)
-{
-	return cosh(rad);
-}
+    static double CosH(double rad)
+    {
+        return cosh(rad);
+    }
 
-static float rTanH(float rad)
-{
-	return tanh(rad);
-}
+    static double TanH(double rad)
+    {
+        return tanh(rad);
+    }
 
-static float rArcSinH(float rad)
-{
-	return asinh(rad);
-}
+    static double ArcSinH(double rad)
+    {
+        return asinh(rad);
+    }
 
-static float rArcCosH(float rad)
-{
-	return acosh(rad);
-}
+    static double ArcCosH(double rad)
+    {
+        return acosh(rad);
+    }
 
-static float rArcTanH(float rad)
-{
-	return atanh(rad);
-}
+    static double ArcTanH(double rad)
+    {
+        return atanh(rad);
+    }
 #pragma endregion
+}
